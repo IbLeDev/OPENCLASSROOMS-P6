@@ -15,6 +15,7 @@ const gallery = document.querySelector(".gallery");
 async function afficher() {
   selectedButton.classList.remove("button--selected");
   buttonTous.classList.add("button--selected");
+  selectedButton = document.querySelector(".button--selected");
   let reponse = await fetch("http://localhost:5678/api/works");
   let travaux = await reponse.json();
   figures = document.querySelectorAll(".gallery > figure");

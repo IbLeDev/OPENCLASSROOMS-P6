@@ -284,3 +284,19 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
+
+#form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-h2 {
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+input {
+  max-width: 200px;
+}
