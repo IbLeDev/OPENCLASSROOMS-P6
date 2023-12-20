@@ -1,135 +1,60 @@
+import { recupererTravauxJSON } from "./recupererTravauxJSON.js";
+import { afficheTravaux } from "./afficheTravaux.js";
+import { removeAllChild } from "./removeAllChild.js";
+
+let travaux = await recupererTravauxJSON();
+
 const buttonTous = document.querySelector("#tous");
-const buttonObjet = document.querySelector("#objets");
+const buttonObjets = document.querySelector("#objets");
 const buttonAppartements = document.querySelector("#appartements");
 const buttonHotels = document.querySelector("#hotels");
 
 let selectedButton = document.querySelector(".button--selected");
-let imageUrl;
-let title;
-let figure;
-let image;
-let figcaption;
 
 const gallery = document.querySelector(".gallery");
 
-async function afficher() {
+async function afficherTous() {
   selectedButton.classList.remove("button--selected");
   buttonTous.classList.add("button--selected");
-  selectedButton = document.querySelector(".button--selected");
-  let reponse = await fetch("http://localhost:5678/api/works");
-  let travaux = await reponse.json();
-  figures = document.querySelectorAll(".gallery > figure");
-  figures.forEach((figure) => figure.remove());
-  travaux.forEach((element) => {
-    title = element.title;
-    imageUrl = element.imageUrl;
-
-    figure = document.createElement("figure");
-    image = document.createElement("img");
-    image.setAttribute("src", imageUrl);
-    image.setAttribute("alt", title);
-    figcaption = document.createElement("figcaption");
-    figcaption.innerText = title;
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-    figure.appendChild(figcaption);
-  });
+  selectedButton = buttonTous;
+  removeAllChild(gallery);
+  afficheTravaux(travaux, gallery);
+  console.log("click");
 }
+await afficherTous();
 
-async function objets() {
-  let reponse = await fetch("http://localhost:5678/api/works");
-  let travaux = await reponse.json();
-  travaux = travaux.filter((e) => e.category.name === "Objets");
+async function afficherObjets() {
   selectedButton.classList.remove("button--selected");
-  buttonObjet.classList.add("button--selected");
-  selectedButton = document.querySelector(".button--selected");
-  figures = document.querySelectorAll(".gallery > figure");
-  figures.forEach((figure) => figure.remove());
-  travaux.forEach((element) => {
-    title = element.title;
-    imageUrl = element.imageUrl;
-
-    figure = document.createElement("figure");
-    image = document.createElement("img");
-    image.setAttribute("src", imageUrl);
-    image.setAttribute("alt", title);
-    figcaption = document.createElement("figcaption");
-    figcaption.innerText = title;
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-    figure.appendChild(figcaption);
-  });
+  buttonObjets.classList.add("button--selected");
+  selectedButton = buttonObjets;
+  removeAllChild(gallery);
+  afficheTravaux(travaux.filter(e => e.category.name === "Objets"), gallery);
+  console.log("click");
 }
 
-async function hotels() {
-  let reponse = await fetch("http://localhost:5678/api/works");
-  let travaux = await reponse.json();
-  travaux = travaux.filter((e) => e.category.name === "Hotels & restaurants");
-  selectedButton.classList.remove("button--selected");
-  buttonHotels.classList.add("button--selected");
-  selectedButton = document.querySelector(".button--selected");
-  figures = document.querySelectorAll(".gallery > figure");
-  figures.forEach((figure) => figure.remove());
-  travaux.forEach((element) => {
-    title = element.title;
-    imageUrl = element.imageUrl;
-
-    figure = document.createElement("figure");
-    image = document.createElement("img");
-    image.setAttribute("src", imageUrl);
-    image.setAttribute("alt", title);
-    figcaption = document.createElement("figcaption");
-    figcaption.innerText = title;
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-    figure.appendChild(figcaption);
-  });
-}
-
-async function apparts() {
-  let reponse = await fetch("http://localhost:5678/api/works");
-  let travaux = await reponse.json();
-  travaux = travaux.filter((e) => e.category.name === "Appartements");
+async function afficherAppartements() {
   selectedButton.classList.remove("button--selected");
   buttonAppartements.classList.add("button--selected");
-  selectedButton = document.querySelector(".button--selected");
-  figures = document.querySelectorAll(".gallery > figure");
-  figures.forEach((figure) => figure.remove());
-  travaux.forEach((element) => {
-    title = element.title;
-    imageUrl = element.imageUrl;
-
-    figure = document.createElement("figure");
-    image = document.createElement("img");
-    image.setAttribute("src", imageUrl);
-    image.setAttribute("alt", title);
-    figcaption = document.createElement("figcaption");
-    figcaption.innerText = title;
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-
-    gallery.appendChild(figure);
-    figure.appendChild(image);
-    figure.appendChild(figcaption);
-  });
+  selectedButton = buttonAppartements;
+  removeAllChild(gallery);
+  afficheTravaux(travaux.filter(e => e.category.name === "Appartements"), gallery);
+  console.log("click");
 }
 
-buttonTous.addEventListener("click", afficher);
-buttonObjet.addEventListener("click", objets);
-buttonHotels.addEventListener("click", hotels);
-buttonAppartements.addEventListener("click", apparts);
+async function afficherHotels() {
+  selectedButton.classList.remove("button--selected");
+  buttonHotels.classList.add("button--selected");
+  selectedButton = buttonHotels;
+  removeAllChild(gallery);
+  afficheTravaux(travaux.filter(e => e.category.name === "Hotels & restaurants"), gallery);
+  console.log("click");
+}
 
-afficher();
+
+
+buttonTous.addEventListener("click", afficherTous);
+buttonObjets.addEventListener("click", afficherObjets);
+buttonAppartements.addEventListener("click", afficherAppartements);
+buttonHotels.addEventListener("click", afficherHotels);
+
+console.log(travaux);
