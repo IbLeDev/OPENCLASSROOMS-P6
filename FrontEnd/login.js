@@ -15,8 +15,9 @@ function login() {
       body: JSON.stringify(body),
     });
     const reponseJson = await reponse.json();
-    const token = reponseJson.token;
+    const token = await reponseJson.token;
     window.localStorage.setItem("token", token);
+    history.back()
   });
 }
 

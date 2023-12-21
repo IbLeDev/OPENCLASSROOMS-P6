@@ -1,6 +1,8 @@
 import { recupererTravauxJSON } from "./recupererTravauxJSON.js";
 import { afficheTravaux } from "./afficheTravaux.js";
 import { removeAllChild } from "./removeAllChild.js";
+import { connecte } from "./connecte.js";
+import { pageAdmin } from "./pageAdmin.js";
 
 let travaux = await recupererTravauxJSON();
 
@@ -8,7 +10,6 @@ const buttonTous = document.querySelector("#tous");
 const buttonObjets = document.querySelector("#objets");
 const buttonAppartements = document.querySelector("#appartements");
 const buttonHotels = document.querySelector("#hotels");
-
 let selectedButton = document.querySelector(".button--selected");
 
 const gallery = document.querySelector(".gallery");
@@ -19,7 +20,6 @@ async function afficherTous() {
   selectedButton = buttonTous;
   removeAllChild(gallery);
   afficheTravaux(travaux, gallery);
-  console.log("click");
 }
 await afficherTous();
 
@@ -28,8 +28,10 @@ async function afficherObjets() {
   buttonObjets.classList.add("button--selected");
   selectedButton = buttonObjets;
   removeAllChild(gallery);
-  afficheTravaux(travaux.filter(e => e.category.name === "Objets"), gallery);
-  console.log("click");
+  afficheTravaux(
+    travaux.filter((e) => e.category.name === "Objets"),
+    gallery
+  );
 }
 
 async function afficherAppartements() {
@@ -37,8 +39,10 @@ async function afficherAppartements() {
   buttonAppartements.classList.add("button--selected");
   selectedButton = buttonAppartements;
   removeAllChild(gallery);
-  afficheTravaux(travaux.filter(e => e.category.name === "Appartements"), gallery);
-  console.log("click");
+  afficheTravaux(
+    travaux.filter((e) => e.category.name === "Appartements"),
+    gallery
+  );
 }
 
 async function afficherHotels() {
@@ -46,15 +50,17 @@ async function afficherHotels() {
   buttonHotels.classList.add("button--selected");
   selectedButton = buttonHotels;
   removeAllChild(gallery);
-  afficheTravaux(travaux.filter(e => e.category.name === "Hotels & restaurants"), gallery);
-  console.log("click");
+  afficheTravaux(
+    travaux.filter((e) => e.category.name === "Hotels & restaurants"),
+    gallery
+  );
 }
 
-
+if (connecte()) {
+  pageAdmin();
+}
 
 buttonTous.addEventListener("click", afficherTous);
 buttonObjets.addEventListener("click", afficherObjets);
 buttonAppartements.addEventListener("click", afficherAppartements);
 buttonHotels.addEventListener("click", afficherHotels);
-
-console.log(travaux);
