@@ -201,6 +201,9 @@ li:hover {
 #introduction p {
   margin-bottom: 0.5em;
 }
+#portfolio {
+  position: relative;
+}
 #portfolio h2 {
   text-align: center;
   margin-bottom: 1em;
@@ -302,9 +305,26 @@ input {
   max-width: 200px;
 }
 
+#bouton--modification {
+  position: absolute;
+  top: 12px;
+  right: 20%;
+  width: 84px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 #modale {
   position: absolute;
-  background-color: #FFF;
+  background-color: #fff;
   z-index: 15;
   top: 660px;
   width: 50%;
