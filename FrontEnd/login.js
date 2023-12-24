@@ -17,7 +17,11 @@ function login() {
     const reponseJson = await reponse.json();
     const token = await reponseJson.token;
     window.localStorage.setItem("token", token);
-    history.back()
+    if (window.localStorage.token !== "undefined") {
+      history.back();
+    } else {
+      alert("Utilisateur introuvable");
+    }
   });
 }
 
