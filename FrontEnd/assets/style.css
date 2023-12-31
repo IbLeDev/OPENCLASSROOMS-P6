@@ -90,6 +90,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -328,6 +329,7 @@ input {
   z-index: 15;
   top: 660px;
   width: 50%;
+  max-width: 630px;
   left: 25%;
   display: flex;
   flex-direction: column;
@@ -386,6 +388,7 @@ input {
 #modale__ligne {
   border-top: solid 1px #000;
   height: 0px;
+  margin: 20px 0;
 }
 
 #modale__button {
@@ -398,4 +401,44 @@ input {
   text-align: center;
   border-radius: 60px;
   border: none;
+}
+
+#ajoutPhoto {
+  position: absolute;
+  background-color: #ffe;
+  z-index: 15;
+  top: 660px;
+  width: 50%;
+  left: 25%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 50px 60px 20px 60px;
+}
+
+#retourModale {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: green;
+}
+
+#quitter {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: yellow;
+}
+
+#ajoutPhoto form {
+  border: red 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

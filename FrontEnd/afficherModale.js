@@ -26,7 +26,6 @@ export async function afficherModale() {
     galerieModale.setAttribute("id", "modale__gallery");
     modale.appendChild(galerieModale);
 
-
     let travaux = await recupererTravauxJSON();
     travauxModale(travaux, galerieModale);
 
@@ -37,7 +36,7 @@ export async function afficherModale() {
     let buttonAjouterPhoto = document.createElement("button");
     buttonAjouterPhoto.setAttribute("id", "modale__button");
     buttonAjouterPhoto.innerText = "Ajouter une photo";
-    buttonAjouterPhoto.addEventListener("click", ouvrirAjoutPhoto);
     modale.appendChild(buttonAjouterPhoto);
+    buttonAjouterPhoto.addEventListener("click", ouvrirAjoutPhoto);
   }
 }
