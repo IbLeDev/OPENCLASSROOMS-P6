@@ -12,8 +12,9 @@ export async function afficherModale() {
     modale.setAttribute("id", "modale");
     body.appendChild(modale);
 
-    let buttonQuitterModale = document.createElement("button");
-    buttonQuitterModale.setAttribute("id", "modale__quitter");
+    let buttonQuitterModale = document.createElement("i");
+    buttonQuitterModale.classList.add("fa-solid");
+    buttonQuitterModale.classList.add("fa-xmark");
     modale.appendChild(buttonQuitterModale);
     buttonQuitterModale.addEventListener("click", quitterModale);
 
