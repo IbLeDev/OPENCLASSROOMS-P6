@@ -46,7 +46,7 @@ export function ouvrirAjoutPhoto() {
     divPhoto.appendChild(buttonAjouterPhoto);
 
     let maxMo = document.createElement("p");
-    maxMo.innerText = "jpg, png > 4mo max";
+    maxMo.innerText = "jpg, png : 4mo max";
     divPhoto.appendChild(maxMo);
 
     form.appendChild(divPhoto);
