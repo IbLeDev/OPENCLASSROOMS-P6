@@ -13,13 +13,16 @@ export function ouvrirAjoutPhoto() {
 
     let buttonRetourModale = document.createElement("button");
     buttonRetourModale.setAttribute("id", "retourModale");
+    buttonRetourModale.classList.add("fa-solid");
+    buttonRetourModale.classList.add("fa-arrow-left");
     buttonRetourModale.addEventListener("click", quitterAjoutPhoto);
     ajoutPhoto.appendChild(buttonRetourModale);
 
-    let buttonQuitter = document.createElement("button");
-    buttonQuitter.setAttribute("id", "quitter");
-    buttonQuitter.addEventListener("click", quitterAjoutPhoto);
+    let buttonQuitter = document.createElement("i");
+    buttonQuitter.classList.add("fa-solid");
+    buttonQuitter.classList.add("fa-xmark");
     buttonQuitter.addEventListener("click", quitterModale);
+    buttonQuitter.addEventListener("click", quitterAjoutPhoto);
     ajoutPhoto.appendChild(buttonQuitter);
 
     let titreModale = document.createElement("h2");
@@ -33,9 +36,10 @@ export function ouvrirAjoutPhoto() {
     let divPhoto = document.createElement("div");
     divPhoto.setAttribute("id", "divPhoto");
 
-    let icone = document.createElement("div");
-    icone.setAttribute("id", "iconePhoto");
-    icone.innerText = "ICONE";
+    let icone = document.createElement("i");
+    icone.classList.add("fa-regular");
+    icone.classList.add("fa-image");
+    icone.classList.add("fa-5x");
     divPhoto.appendChild(icone);
 
     let buttonAjouterPhoto = document.createElement("input");
@@ -52,10 +56,10 @@ export function ouvrirAjoutPhoto() {
     form.appendChild(divPhoto);
 
     let labelTitre = document.createElement("label");
-    labelTitre.setAttribute("for", "titre")
+    labelTitre.setAttribute("for", "titre");
     labelTitre.innerText = "Titre";
     form.appendChild(labelTitre);
-    
+
     let inputTitre = document.createElement("input");
     inputTitre.setAttribute("name", "titre");
     inputTitre.setAttribute("type", "text");
@@ -64,12 +68,12 @@ export function ouvrirAjoutPhoto() {
 
     let labelCategorie = document.createElement("label");
     labelCategorie.setAttribute("for", "categorie");
-    labelCategorie.setAttribute("type", "number");
     labelCategorie.innerText = "Catégorie";
     form.appendChild(labelCategorie);
-    
+
     let inputCategorie = document.createElement("input");
     inputCategorie.setAttribute("name", "categorie");
+    inputCategorie.setAttribute("type", "number");
     inputCategorie.classList.add("ajoutPhoto__input");
     form.appendChild(inputCategorie);
 
@@ -80,7 +84,7 @@ export function ouvrirAjoutPhoto() {
     let valider = document.createElement("input");
     valider.classList.add("button");
     valider.setAttribute("type", "submit");
-    valider.innerText = "VALIDER";
+    valider.setAttribute("value", "VALIDER");
     form.appendChild(valider);
 
     ajoutPhoto.appendChild(form);

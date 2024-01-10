@@ -18,6 +18,12 @@ export function travauxModale(table, gallery) {
     corbeille.classList.add("corbeille");
     corbeille.setAttribute("id", `${element.id}`);
 
+    let trash = document.createElement("i");
+    trash.classList.add("fa-solid");
+    trash.classList.add("fa-trash-can");
+
+    corbeille.appendChild(trash);
+
     travail.appendChild(corbeille);
     travail.appendChild(image);
 
