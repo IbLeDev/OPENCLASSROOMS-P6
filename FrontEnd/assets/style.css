@@ -354,7 +354,6 @@ footer nav ul {
   top: 660px;
   width: 50%;
   max-width: 630px;
-  height: 688px;
   left: 25%;
   display: flex;
   flex-direction: column;
@@ -409,13 +408,22 @@ footer nav ul {
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: #000
+  background-color: #000;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-trash-can {
+  color: #fff;
 }
 
 #modale__ligne {
   border-top: solid 1px #000;
   height: 0px;
   margin: 20px 0;
+  width: 100%;
 }
 
 #modale__button {
@@ -440,43 +448,125 @@ footer nav ul {
   top: 660px;
   width: 50%;
   left: 25%;
+  height: 688px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  padding: 50px 60px 20px 60px;
+  padding: 50px 100px 20px 100px;
 }
 
 #retourModale {
   position: absolute;
   top: 15px;
   left: 15px;
-  width: 24px;
-  height: 24px;
+  width: 50px;
+  height: 50px;
   border: none;
-  background-color: green;
+  background-color: transparent;
+}
+
+#retourModale::before {
+  width: 100%;
+  height: 100%;
 }
 
 #quitter {
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   border: none;
   background-color: yellow;
 }
 
-#ajoutPhoto form {
-  border: red 2px solid;
+#ajoutPhoto {
+  position: absolute;
+  background-color: #fff;
+  z-index: 15;
+  top: 660px;
+  width: 50%;
+  max-width: 630px;
+  left: 25%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  border-radius: 10px;
+}
+
+#ajoutPhoto form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#ajoutPhoto form label {
+  margin-bottom: 10px;
 }
 
 #divPhoto {
-  background-color: #E8F1F6;
+  border-radius: 3px;
+  background: #e8f1f6;
+  width: 420px;
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#divPhoto .fa-image {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
+  color: #B9C5CC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#buttonAjouterPhoto {
+  border-radius: 50px;
+  background: #cbd6dc;
+  color: #306685;
+  text-align: center;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#ajoutPhoto input[type="text"] {
+  background: #fff;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+  border: none;
+  margin-bottom: 21px;
+  width: 420px;
+  height: 51px;
+  flex-shrink: 0;
+}
+
+#ajoutPhoto input[type="number"] {
+  background: #fff;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+  border: none;
+  margin-bottom: 21px;
+  width: 420px;
+  height: 51px;
+  flex-shrink: 0;
+}
+
+#ajoutPhoto input[type="submit"] {
+  border-radius: 60px;
+  background: #a7a7a7;
+  border: none;
+  width: 237px;
+  height: 36px;
+  flex-shrink: 0;
 }
 
 body {
-  background: rgba(0, 0, 0, 0.30);
+  background: rgba(0, 0, 0, 0.3);
 }
