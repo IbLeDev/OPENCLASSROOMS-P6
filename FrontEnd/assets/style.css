@@ -109,6 +109,7 @@ section {
 body {
   line-height: 1;
   background-color: #fffef8;
+  position: relative;
 }
 ol,
 ul {
@@ -131,15 +132,12 @@ table {
 }
 /** end reset css**/
 body {
-  max-width: 1140px;
-  margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
 }
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
 }
 section {
   margin: 50px 0;
@@ -287,7 +285,7 @@ input[type="submit"] {
 footer nav ul {
   display: flex;
   justify-content: flex-end;
-  margin: 2em;
+  height: 60px;
 }
 
 #form-login {
@@ -330,6 +328,12 @@ footer nav ul {
   flex-shrink: 0;
 }
 
+nav a {
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
 #bouton--modification {
   position: absolute;
   top: 12px;
@@ -347,11 +351,21 @@ footer nav ul {
   line-height: normal;
 }
 
+#gris {
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 7;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 #modale {
   position: absolute;
   background-color: #fff;
   z-index: 15;
-  top: 660px;
+  top: 535px;
   width: 50%;
   max-width: 630px;
   left: 25%;
@@ -445,7 +459,7 @@ footer nav ul {
   position: absolute;
   background-color: #ffe;
   z-index: 15;
-  top: 660px;
+  top: 535px;
   width: 50%;
   left: 25%;
   height: 688px;
@@ -484,13 +498,14 @@ footer nav ul {
   position: absolute;
   background-color: #fff;
   z-index: 15;
-  top: 660px;
+  top: 535px;
   width: 50%;
-  max-width: 630px;
   left: 25%;
+  height: 688px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  padding: 50px 100px 20px 100px;
 }
 
 #ajoutPhoto form {
@@ -506,7 +521,7 @@ footer nav ul {
 #divPhoto {
   border-radius: 3px;
   background: #e8f1f6;
-  width: 420px;
+  width: 100%;
   height: 169px;
   display: flex;
   flex-direction: column;
@@ -519,12 +534,11 @@ footer nav ul {
   width: 80px;
   height: 80px;
   margin-bottom: 5px;
-  color: #B9C5CC;
+  color: #b9c5cc;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 #buttonAjouterPhoto {
   border-radius: 50px;
@@ -543,7 +557,7 @@ footer nav ul {
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
   border: none;
   margin-bottom: 21px;
-  width: 420px;
+  width: 100%;
   height: 51px;
   flex-shrink: 0;
 }
@@ -553,7 +567,7 @@ footer nav ul {
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
   border: none;
   margin-bottom: 21px;
-  width: 420px;
+  width: 100%;
   height: 51px;
   flex-shrink: 0;
 }
@@ -567,6 +581,24 @@ footer nav ul {
   flex-shrink: 0;
 }
 
+html {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background: rgba(0, 0, 0, 0.3);
+  margin: 0;
+  background: #fffef8;
+}
+
+main {
+  padding: 0 150px;
+}
+
+header {
+  padding: 50px 150px 0 150px;
+}
+
+footer {
+  background-color: #FFF;
 }
