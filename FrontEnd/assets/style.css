@@ -286,6 +286,7 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   height: 60px;
+  padding-right: 100px;
 }
 
 #form-login {
@@ -528,6 +529,7 @@ nav a {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 #divPhoto .fa-image {
@@ -541,6 +543,13 @@ nav a {
 }
 
 #buttonAjouterPhoto {
+  display: none;
+}
+
+#labelAjouterPhoto {
+  width: 173px;
+  height: 36px;
+  flex-shrink: 0;
   border-radius: 50px;
   background: #cbd6dc;
   color: #306685;
@@ -550,6 +559,13 @@ nav a {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#imageDisplay {
+  width: 130px;
 }
 
 #ajoutPhoto input[type="text"] {
@@ -600,5 +616,5 @@ header {
 }
 
 footer {
-  background-color: #FFF;
+  background-color: #fff;
 }

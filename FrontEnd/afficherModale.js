@@ -2,6 +2,7 @@ import { quitterModale } from "./quitterModale.js";
 import { ouvrirAjoutPhoto } from "./ouvrirAjoutPhoto.js";
 import { travauxModale } from "./travauxModale.js";
 import { recupererTravauxJSON } from "./recupererTravauxJSON.js";
+import { supprimerTravail } from "./supprimerTravail.js";
 
 export async function afficherModale() {
   let i = document.querySelector("#modale");
@@ -10,7 +11,6 @@ export async function afficherModale() {
     let body = document.querySelector("body");
     let modale = document.createElement("div");
     modale.setAttribute("id", "modale");
-    body.appendChild(modale);
 
     let buttonQuitterModale = document.createElement("i");
     buttonQuitterModale.classList.add("fa-solid");
@@ -39,5 +39,13 @@ export async function afficherModale() {
     buttonAjouterPhoto.innerText = "Ajouter une photo";
     modale.appendChild(buttonAjouterPhoto);
     buttonAjouterPhoto.addEventListener("click", ouvrirAjoutPhoto);
+
+    let gris = document.createElement("div");
+    gris.setAttribute("id", "gris");
+    gris.addEventListener("click", quitterModale);
+    body.appendChild(gris);
+
+    body.appendChild(modale);
+    supprimerTravail();
   }
 }
