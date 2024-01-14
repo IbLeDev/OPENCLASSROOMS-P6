@@ -43,17 +43,50 @@ export function ouvrirAjoutPhoto() {
     divPhoto.appendChild(icone);
 
     let buttonAjouterPhoto = document.createElement("input");
-    buttonAjouterPhoto.classList.add("button");
     buttonAjouterPhoto.setAttribute("id", "buttonAjouterPhoto");
+    buttonAjouterPhoto.setAttribute("name", "ajoutPhoto");
     buttonAjouterPhoto.setAttribute("type", "file");
-    buttonAjouterPhoto.innerText = "Ajouter photo";
-    divPhoto.appendChild(buttonAjouterPhoto);
+
+    let labelAjouterPhoto = document.createElement("label");
+    labelAjouterPhoto.setAttribute("id", "labelAjouterPhoto");
+    labelAjouterPhoto.setAttribute("for", "buttonAjouterPhoto");
+    labelAjouterPhoto.innerText = "+ Ajouter photo";
+
+    let imageDisplay = document.createElement("img"); // Element to display the selected image
+    imageDisplay.setAttribute("id", "imageDisplay");
+
+    labelAjouterPhoto.appendChild(buttonAjouterPhoto);
+    divPhoto.appendChild(labelAjouterPhoto);
+    divPhoto.appendChild(imageDisplay); // Append the image display element to the DOM
 
     let maxMo = document.createElement("p");
     maxMo.innerText = "jpg, png : 4mo max";
     divPhoto.appendChild(maxMo);
 
     form.appendChild(divPhoto);
+
+    buttonAjouterPhoto.addEventListener("change", function () {
+      const file = this.files[0];
+      let labelAjouterPhoto = document.querySelector("#labelAjouterPhoto");
+      let maxMo = document.querySelector("#divPhoto p");
+      let icone = document.querySelector(".fa-image");
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          imageDisplay.src = e.target.result; // Update the image display with the data URL
+        };
+
+        reader.readAsDataURL(file);
+        labelAjouterPhoto.style.display = "none";
+        maxMo.style.display = "none";
+        icone.style.display = "none";
+      } else {
+        // Handle case where no file is selected
+        imageDisplay.src = ""; // Clear the image display
+      }
+    });
 
     let labelTitre = document.createElement("label");
     labelTitre.setAttribute("for", "titre");
