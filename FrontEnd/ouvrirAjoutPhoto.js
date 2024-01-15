@@ -96,19 +96,38 @@ export function ouvrirAjoutPhoto() {
     let inputTitre = document.createElement("input");
     inputTitre.setAttribute("name", "titre");
     inputTitre.setAttribute("type", "text");
-    inputTitre.classList.add("ajoutPhoto__input");
     form.appendChild(inputTitre);
 
     let labelCategorie = document.createElement("label");
-    labelCategorie.setAttribute("for", "categorie");
+    labelCategorie.setAttribute("for", "categories");
     labelCategorie.innerText = "Catégorie";
     form.appendChild(labelCategorie);
 
-    let inputCategorie = document.createElement("input");
-    inputCategorie.setAttribute("name", "categorie");
-    inputCategorie.setAttribute("type", "number");
-    inputCategorie.classList.add("ajoutPhoto__input");
-    form.appendChild(inputCategorie);
+    let categorie = document.createElement("select");
+    categorie.setAttribute("name", "categories");
+
+    let option = document.createElement("option");
+    option.setAttribute("value", "");
+    option.innerText = " ";
+    categorie.appendChild(option);
+
+    option.setAttribute("value", "1");
+    option.innerText = "Objets";
+    categorie.appendChild(option);
+
+    option = document.createElement("option");
+    option.setAttribute("value", "2");
+    option.innerText = "Appartements";
+    categorie.appendChild(option);
+
+    option = document.createElement("option");
+    option.setAttribute("value", "3");
+    option.innerText = "Hotels & restaurants";
+    categorie.appendChild(option);
+
+
+
+    form.appendChild(categorie);
 
     let ligne = document.createElement("div");
     ligne.setAttribute("id", "modale__ligne");
