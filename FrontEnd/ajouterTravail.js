@@ -9,7 +9,8 @@ export function ajouterTravail() {
 
     const imageInput = event.target.querySelector("#buttonAjouterPhoto");
     const titre = event.target.querySelector("[name=titre]").value;
-    const categorie = event.target.querySelector("[name=categorie]").value;
+    const categorie = event.target.querySelector("[name=categories]").value;
+    console.log(categorie);
 
     const formData = new FormData();
 
