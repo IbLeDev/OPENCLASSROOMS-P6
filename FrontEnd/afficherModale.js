@@ -3,6 +3,7 @@ import { ouvrirAjoutPhoto } from "./ouvrirAjoutPhoto.js";
 import { travauxModale } from "./travauxModale.js";
 import { recupererTravauxJSON } from "./recupererTravauxJSON.js";
 import { supprimerTravail } from "./supprimerTravail.js";
+import { quitterAjoutPhoto } from "./quitterAjoutPhoto.js";
 
 export async function afficherModale() {
   let i = document.querySelector("#modale");
@@ -42,6 +43,7 @@ export async function afficherModale() {
 
     let gris = document.createElement("div");
     gris.setAttribute("id", "gris");
+    gris.addEventListener("click", quitterAjoutPhoto);
     gris.addEventListener("click", quitterModale);
     body.appendChild(gris);
 
