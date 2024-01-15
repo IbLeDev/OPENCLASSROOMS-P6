@@ -28,6 +28,7 @@ export function ajouterTravail() {
       });
       quitterAjoutPhoto();
       quitterModale();
+      location.reload();
       alert("Post ajouté !");
     } catch (error) {
       alert("Erreur :(");
