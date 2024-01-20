@@ -1,6 +1,3 @@
-import { quitterAjoutPhoto } from "./quitterAjoutPhoto.js";
-import { quitterModale } from "./quitterModale.js";
-
 export function ajouterTravail() {
   const form = document.querySelector("#formAjoutTravail");
 
@@ -26,9 +23,6 @@ export function ajouterTravail() {
         },
         body: formData,
       });
-      quitterAjoutPhoto();
-      quitterModale();
-      location.reload();
       alert("Post ajouté !");
     } catch (error) {
       alert("Erreur :(");

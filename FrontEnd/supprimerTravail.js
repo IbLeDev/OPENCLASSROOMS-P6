@@ -1,6 +1,3 @@
-import { quitterModale } from "./quitterModale.js";
-import { afficherModale } from "./afficherModale.js";
-
 export function supprimerTravail() {
   const corbeilles = document.querySelectorAll(".corbeille");
   corbeilles.forEach(function (corbeille) {
