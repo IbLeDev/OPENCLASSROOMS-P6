@@ -22,6 +22,13 @@ export function travauxModale(table, gallery) {
     trash.classList.add("fa-solid");
     trash.classList.add("fa-trash-can");
 
+    trash.addEventListener("click", () => {
+      const parentTravail = trash.closest(".travail");
+      if (parentTravail) {
+        parentTravail.remove();
+      }
+    });
+
     corbeille.appendChild(trash);
 
     travail.appendChild(corbeille);

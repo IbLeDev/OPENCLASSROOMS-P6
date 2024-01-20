@@ -12,8 +12,6 @@ export function supprimerTravail() {
         method: "DELETE",
         headers: { "Authorization": "Bearer " + `${localStorage.token}` },
       });
-      quitterModale();
-      afficherModale();
     });
   });
 }
