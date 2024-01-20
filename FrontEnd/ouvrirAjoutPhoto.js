@@ -46,6 +46,7 @@ export function ouvrirAjoutPhoto() {
     buttonAjouterPhoto.setAttribute("id", "buttonAjouterPhoto");
     buttonAjouterPhoto.setAttribute("name", "ajoutPhoto");
     buttonAjouterPhoto.setAttribute("type", "file");
+    buttonAjouterPhoto.setAttribute("required", "");
 
     let labelAjouterPhoto = document.createElement("label");
     labelAjouterPhoto.setAttribute("id", "labelAjouterPhoto");
@@ -75,7 +76,7 @@ export function ouvrirAjoutPhoto() {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-          imageDisplay.src = e.target.result; // Update the image display with the data URL
+          imageDisplay.src = e.target.result;
         };
 
         reader.readAsDataURL(file);
@@ -83,8 +84,8 @@ export function ouvrirAjoutPhoto() {
         maxMo.style.display = "none";
         icone.style.display = "none";
       } else {
-        // Handle case where no file is selected
-        imageDisplay.src = ""; // Clear the image display
+        
+        imageDisplay.src = "";
       }
     });
 
@@ -96,6 +97,7 @@ export function ouvrirAjoutPhoto() {
     let inputTitre = document.createElement("input");
     inputTitre.setAttribute("name", "titre");
     inputTitre.setAttribute("type", "text");
+    inputTitre.setAttribute("required", "");
     form.appendChild(inputTitre);
 
     let labelCategorie = document.createElement("label");
@@ -105,6 +107,7 @@ export function ouvrirAjoutPhoto() {
 
     let categorie = document.createElement("select");
     categorie.setAttribute("name", "categories");
+    categorie.setAttribute("required", "");
 
     let option = document.createElement("option");
     option.setAttribute("value", "");
