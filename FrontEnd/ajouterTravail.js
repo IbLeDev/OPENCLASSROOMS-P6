@@ -1,8 +1,14 @@
+import { afficheTravaux } from "./afficheTravaux.js";
+import { removeAllChild } from "./removeAllChild.js";
+import { recupererTravauxJSON } from "./recupererTravauxJSON.js";
+
 export function ajouterTravail() {
   const form = document.querySelector("#formAjoutTravail");
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    const gallery = document.querySelector(".gallery");
 
     const imageInput = event.target.querySelector("#buttonAjouterPhoto");
     const titre = event.target.querySelector("[name=titre]").value;
@@ -24,6 +30,9 @@ export function ajouterTravail() {
         body: formData,
       });
       alert("Post ajouté !");
+      removeAllChild(gallery);
+      const travaux = await recupererTravauxJSON();
+      afficheTravaux(travaux, gallery);
     } catch (error) {
       alert("Erreur :(");
     }
